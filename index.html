@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Somya Singh Kushwah's personal portfolio — B.Tech Computer Science (AI) student at GLA University.">
+  <title>Somya Singh Kushwah | Portfolio</title>
+  <style>
+    :root {
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --sky: #60a5fa;
+      --ink: #14213d;
+      --muted: #5f6f89;
+      --line: #dce8fb;
+      --paper: #ffffff;
+      --wash: #f3f8ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--wash); color: var(--ink); line-height: 1.65; overflow-x: hidden;
+    }
+    a { color: inherit; }
+    .orb {
+      position: fixed; width: 280px; height: 280px; border-radius: 50%;
+      filter: blur(75px); opacity: .22; pointer-events: none; z-index: -1;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    .orb.one { background: #60a5fa; top: 8%; left: -120px; }
+    .orb.two { background: #93c5fd; right: -130px; top: 55%; animation-delay: -5s; }
+    @keyframes drift { to { transform: translate(45px, 35px) scale(1.12); } }
+    .nav {
+      position: sticky; top: 0; z-index: 20; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px; padding: 16px 8%;
+      background: rgba(255,255,255,.86); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(220,232,251,.8);
+    }
+    .brand { font-weight: 850; font-size: 1.25rem; letter-spacing: -.5px; text-decoration: none; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
+    .nav-links a { text-decoration: none; color: #455571; font-weight: 650; font-size: .93rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .hero {
+      min-height: 84vh; padding: 85px 8% 95px; display: grid; place-items: center;
+      grid-template-columns: 1.2fr .8fr; gap: 55px; max-width: 1250px; margin: auto;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 14px;
+      background: #e5efff; color: var(--blue-dark); border: 1px solid #cfe0ff;
+      border-radius: 999px; font-size: .88rem; font-weight: 750; margin-bottom: 24px;
+    }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 0 5px #bfdbfe; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.25rem); line-height: 1.04; letter-spacing: -3px; margin-bottom: 22px; }
+    .gradient-text { background: linear-gradient(100deg, #1d4ed8, #38bdf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-copy { color: var(--muted); max-width: 610px; font-size: 1.08rem; }
+    .hero-copy strong { color: var(--ink); }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 9px;
+      padding: 13px 20px; border-radius: 12px; text-decoration: none; font-weight: 750;
+      border: 1px solid transparent; transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary { color: white; background: linear-gradient(120deg, var(--blue), #3b82f6); box-shadow: 0 10px 24px #2563eb38; }
+    .btn-primary:hover { box-shadow: 0 14px 30px #2563eb50; }
+    .btn-secondary { background: white; color: var(--blue-dark); border-color: #cfe0ff; }
+    .btn-secondary:hover { background: #eff6ff; }
+    .social-note { margin-top: 19px; color: #71809a; font-size: .9rem; }
+    .visual { min-height: 350px; display: grid; place-items: center; position: relative; }
+    .ring { position: absolute; width: 300px; height: 300px; border: 1px dashed #93c5fd; border-radius: 50%; animation: spin 28s linear infinite; }
+    .ring::before, .ring::after { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 22px #60a5fa; }
+    .ring::before { top: 28px; left: 45px; } .ring::after { bottom: 38px; right: 22px; background: #7dd3fc; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .avatar-card {
+      position: relative; width: 230px; height: 260px; border-radius: 32px;
+      display: grid; place-items: center; background: linear-gradient(145deg, #ffffff, #e3efff);
+      border: 1px solid #d4e4ff; box-shadow: 0 30px 80px #3b82f62b, inset 0 1px white;
+      transform: rotate(3deg); animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+    .avatar {
+      width: 145px; height: 145px; border-radius: 50%; display: grid; place-items: center;
+      color: white; font-size: 3.2rem; font-weight: 900; letter-spacing: -2px;
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      border: 7px solid #fff; box-shadow: 0 12px 35px #2563eb40;
+    }
+    .avatar-caption { position: absolute; bottom: 23px; text-align: center; }
+    .avatar-caption strong { display: block; font-size: 1.08rem; }
+    .avatar-caption span { color: var(--muted); font-size: .85rem; }
+    .float-chip {
+      position: absolute; padding: 11px 15px; background: white; border: 1px solid var(--line);
+      border-radius: 13px; box-shadow: 0 12px 30px #1d4ed815; font-weight: 750; color: var(--blue-dark);
+      animation: float 4s ease-in-out infinite;
+    }
+    .chip-top { top: 34px; right: -5px; } .chip-bottom { bottom: 30px; left: -12px; animation-delay: -2s; }
+    section { padding: 88px 8%; }
+    .section-inner { max-width: 1100px; margin: auto; }
+    .section-heading { text-align: center; margin-bottom: 42px; }
+    .kicker { color: var(--blue); text-transform: uppercase; font-size: .78rem; letter-spacing: 2px; font-weight: 850; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; letter-spacing: -1.2px; margin-top: 8px; }
+    .section-heading p { max-width: 640px; margin: 13px auto 0; color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 25px; align-items: stretch; }
+    .info-card, .about-card, .skill-card, .project-card, .contact-card {
+      background: rgba(255,255,255,.88); border: 1px solid var(--line); border-radius: 22px;
+      box-shadow: 0 12px 35px #1e40af09;
+    }
+    .info-card { padding: 27px; }
+    .info-row { padding: 13px 0; border-bottom: 1px solid #edf2fc; }
+    .info-row:last-child { border-bottom: 0; }
+    .info-label { color: #8190a9; display: block; font-size: .8rem; font-weight: 750; text-transform: uppercase; letter-spacing: .8px; }
+    .info-value { font-weight: 750; overflow-wrap: anywhere; }
+    .about-card { padding: 32px; }
+    .about-card p { color: var(--muted); margin-top: 12px; }
+    .about-card p:first-child { margin-top: 0; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .skill-card { padding: 24px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .skill-card:hover, .project-card:hover { transform: translateY(-7px); border-color: #93c5fd; box-shadow: 0 20px 40px #2563eb15; }
+    .skill-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; color: var(--blue); background: #eaf2ff; font-size: 1.25rem; font-weight: 900; margin-bottom: 15px; }
+    .skill-card h3 { margin-bottom: 6px; }
+    .skill-card p { color: var(--muted); font-size: .93rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { padding: 26px; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+    .project-symbol { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; color: var(--blue); background: #eaf2ff; font-size: 1.35rem; font-weight: 900; }
+    .project-type { color: #6b7c96; font-size: .78rem; font-weight: 750; }
+    .project-card h3 { margin-bottom: 9px; }
+    .project-card p { color: var(--muted); font-size: .93rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 17px; }
+    .tag-list span { background: #edf4ff; color: #2454a6; padding: 5px 9px; border-radius: 7px; font-size: .75rem; font-weight: 750; }
+    .project-footnote { color: #71809a; font-size: .88rem; text-align: center; margin-top: 22px; }
+    .contact-wrap { max-width: 820px; margin: auto; }
+    .contact-card { text-align: center; padding: clamp(28px, 6vw, 55px); background: linear-gradient(145deg, #fff, #eef6ff); }
+    .contact-card p { color: var(--muted); max-width: 580px; margin: 14px auto 0; }
+    .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 25px; }
+    footer { text-align: center; padding: 28px 8%; color: #71809a; border-top: 1px solid var(--line); background: #fff9; font-size: .9rem; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; text-align: center; gap: 20px; padding-top: 65px; }
+      .hero-copy { margin: auto; } .actions { justify-content: center; }
+      .visual { min-height: 330px; } .about-grid { grid-template-columns: 1fr; }
+      .skills-grid, .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav { padding: 15px 5%; } .nav-links { gap: 13px; }
+    }
+    @media (max-width: 560px) {
+      .nav { flex-direction: column; gap: 10px; }
+      .nav-links { justify-content: center; gap: 10px 15px; }
+      .nav-links a { font-size: .84rem; }
+      .hero { padding-left: 6%; padding-right: 6%; }
+      h1 { letter-spacing: -1.7px; }
+      section { padding: 66px 6%; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .ring { width: 255px; height: 255px; }
+      .avatar-card { width: 205px; height: 245px; }
+      .chip-top { right: -1px; } .chip-bottom { left: -2px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div><div class="orb two"></div>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home">Somya<span>.</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> B.Tech CS (AI) Student</div>
+        <h1>Hi, I'm<br><span class="gradient-text">Somya Singh Kushwah.</span></h1>
+        <p class="hero-copy">A computer science student at <strong>GLA University, Mathura</strong>, exploring programming, web development, and artificial intelligence one project at a time.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">Explore My Work <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="https://github.com/somyakushawahcs26" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+        </div>
+        <p class="social-note">Currently learning • Building my foundations • Growing every day</p>
+      </div>
+      <div class="visual" aria-label="Initials avatar for Somya Singh Kushwah">
+        <div class="ring"></div>
+        <div class="avatar-card">
+          <div class="avatar">SK</div>
+          <div class="avatar-caption"><strong>Somya Singh Kushwah</strong><span>Student Developer</span></div>
+        </div>
+        <div class="float-chip chip-top">💻 Coder in progress</div>
+        <div class="float-chip chip-bottom">✦ Curious about AI</div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="section-inner reveal">
+        <div class="section-heading"><span class="kicker">A little about me</span><h2>My journey in tech</h2><p>Learning the fundamentals today and working toward bigger ideas tomorrow.</p></div>
+        <div class="about-grid">
+          <div class="info-card">
+            <div class="info-row"><span class="info-label">Education</span><span class="info-value">B.Tech Computer Science (AI)</span></div>
+            <div class="info-row"><span class="info-label">University</span><span class="info-value">GLA University, Mathura</span></div>
+            <div class="info-row"><span class="info-label">Focus</span><span class="info-value">Programming & Web Development</span></div>
+            <div class="info-row"><span class="info-label">GitHub</span><span class="info-value"><a href="https://github.com/somyakushawahcs26" target="_blank" rel="noopener noreferrer">somyakushawahcs26 ↗</a></span></div>
+          </div>
+          <div class="about-card">
+            <p>Hi! I'm Somya, a B.Tech Computer Science (AI) student at GLA University, Mathura.</p>
+            <p>I'm building my programming fundamentals with C and exploring Python, HTML, and CSS. I enjoy learning how software works and turning what I learn into small, practical projects.</p>
+            <p>My current goal is to strengthen my problem-solving skills, create more projects, and gradually explore artificial intelligence and software development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-inner reveal">
+        <div class="section-heading"><span class="kicker">What I'm learning</span><h2>Skills & interests</h2><p>My current learning areas. I'll update this section as I gain more experience.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon">C</div><h3>C Programming</h3><p>Practising conditions, loops, calculations, and basic problem-solving programs.</p></article>
+          <article class="skill-card"><div class="skill-icon">Py</div><h3>Python</h3><p>Learning the language fundamentals and building confidence with simple programs.</p></article>
+          <article class="skill-card"><div class="skill-icon">&lt;/&gt;</div><h3>HTML & CSS</h3><p>Creating web pages, styling layouts, and learning responsive design.</p></article>
+          <article class="skill-card"><div class="skill-icon">AI</div><h3>Artificial Intelligence</h3><p>Exploring AI concepts as part of my computer science learning journey.</p></article>
+          <article class="skill-card"><div class="skill-icon">⌘</div><h3>Problem Solving</h3><p>Improving logical thinking by working through coding exercises.</p></article>
+          <article class="skill-card"><div class="skill-icon">↗</div><h3>Always Learning</h3><p>Building a consistent habit of learning, experimenting, and improving.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-inner reveal">
+        <div class="section-heading"><span class="kicker">Things I'm building</span><h2>Projects & practice</h2><p>A starting collection of learning work. Add links here as you publish real projects.</p></div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-top"><div class="project-symbol">✦</div><span class="project-type">Web Development</span></div>
+            <h3>Personal Portfolio</h3><p>A responsive white-and-blue website introducing my education, skills, interests, and learning journey.</p>
+            <div class="tag-list"><span>HTML</span><span>CSS</span><span>Responsive UI</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-symbol">{ }</div><span class="project-type">Programming</span></div>
+            <h3>C Practice Programs</h3><p>Practice exercises covering loops, conditions, calculations, and core programming logic.</p>
+            <div class="tag-list"><span>C</span><span>Logic</span><span>Fundamentals</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-top"><div class="project-symbol">AI</div><span class="project-type">Future Project</span></div>
+            <h3>Exploring AI</h3><p>A future project space for an AI-based idea once I have developed the skills to build it.</p>
+            <div class="tag-list"><span>Learning</span><span>Python</span><span>AI</span></div>
+          </article>
+        </div>
+        <p class="project-footnote">These are learning highlights, not claims of completed production projects. I'll add repository links as I publish them.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-wrap reveal">
+        <div class="contact-card">
+          <span class="kicker">Say hello</span>
+          <h2>Let's connect and learn.</h2>
+          <p>Want to see what I'm working on? Visit my GitHub profile to follow my coding journey and future projects.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://github.com/somyakushawahcs26" target="_blank" rel="noopener noreferrer">Visit My GitHub ↗</a>
+            <a class="btn btn-secondary" href="https://github.com/somyakushawahcs26?tab=repositories" target="_blank" rel="noopener noreferrer">View Repositories</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> Somya Singh Kushwah · Built with HTML, CSS & JavaScript</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
